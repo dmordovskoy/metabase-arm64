@@ -1,5 +1,5 @@
-# Advanced ARM64 Metabase Dockerfile with Auto-Version Detection
-FROM openjdk:17-jre-slim
+# Fixed ARM64 Metabase Dockerfile for Coolify
+FROM eclipse-temurin:17-jre-jammy
 
 # Set environment variables
 ENV MB_PLUGINS_DIR=/plugins
@@ -38,5 +38,5 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:3000/api/health || exit 1
 
-# Start Metabase
-CMD ["java", "-jar", "metabase.jar"]
+# Start Metabase (using official JAR startup method)
+CMD ["java", "--add-opens", "java.base/java.nio=ALL-UNNAMED", "-jar", "metabase.jar"]
