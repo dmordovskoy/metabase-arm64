@@ -1,5 +1,5 @@
-# Fixed ARM64 Metabase Dockerfile for Coolify
-FROM eclipse-temurin:17-jre-jammy
+# ARM64 Metabase Dockerfile for Coolify
+FROM eclipse-temurin:21-jre-jammy
 
 # Set environment variables
 ENV MB_PLUGINS_DIR=/plugins
